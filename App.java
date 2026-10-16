@@ -1,43 +1,45 @@
+
 import java.util.Scanner;
 
 public class App {
+
     public static void main(String[] args) {
-       
-int cantidadProductos;
-String nombreProducto;
-double costoBase;
-int CategoriaAlta = 0;
-double CostoAcomulado= 0;
-double promedio;
-        
 
-        Scanner leer = new Scanner (System.in); 
+        int cantidadProductos;
+        String nombreProducto;
+        double costoBase;
+        int CategoriaAlta = 0;
+        double CostoAcomulado = 0;
+        double promedio;
 
-        
- System.out.println("cuantos productos desea ingresar ");
- cantidadProductos = leer.nextInt();
+        Scanner leer = new Scanner(System.in);
 
- for (int i = 1; i <= cantidadProductos; i++) {
-    System.out.println("Ingrese el nombre del producto: " + i + ":");
-    nombreProducto = leer.next();
+        System.out.println("cuantos productos desea ingresar ");
+        cantidadProductos = leer.nextInt();
 
-    System.out.println("Ingrese el costo base del producto: ");
-     costoBase = leer.nextDouble();
+        for (int i = 1; i <= cantidadProductos; i++) {
+            System.out.println("Ingrese el nombre del producto: " + i + ":");
+            nombreProducto = leer.next();
 
-     CostoAcomulado = CostoAcomulado + costoBase;
+            System.out.println("Ingrese el costo base del producto: ");
+            costoBase = leer.nextDouble();
 
-     if (costoBase < 10000) {
-        System.out.println("categoria baja");
-     } else if (costoBase >= 10000 && costoBase <= 50000){
-        System.out.println("categoria media");
-     } else {
-        System.out.println("categoria alta ");
-        CategoriaAlta++;
-     } 
+            CostoAcomulado = CostoAcomulado + costoBase;
 
-     
- }
+            if (costoBase < 10000) {
+                System.out.println("categoria baja");
+            } else if (costoBase >= 10000 && costoBase <= 50000) {
+                System.out.println("categoria media");
+            } else {
+                System.out.println("categoria alta ");
+                CategoriaAlta++;
+            }
+        }
+        promedio = CostoAcomulado / cantidadProductos;
 
+        System.out.println("el costo total de todos los productos es: " + CostoAcomulado);
+        System.out.println("el promedio de los productos es: " + promedio);
+        System.out.println("los productos de categoria alta son: " + CategoriaAlta);
 
     }
 }
